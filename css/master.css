@@ -1,0 +1,38 @@
+html,
+body {
+  height: 100%;
+  margin: 0
+}
+
+body {
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.box {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.box .row {
+  padding-bottom: 8px;
+  display: flex;
+}
+
+.box .row.header {
+  flex: 0 1 auto;
+}
+
+.box .row.content {
+  flex: 1 1 auto;
+}
+
+.box .row.footer {
+  flex: 0 1 40px;
+}
+
+#deckcode {
+  margin-left: 4px;
+  flex: 2;
+}
