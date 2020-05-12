@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Legends of Runterra Decklist Utility</title>
+  <style media="screen">
+    html,
+    body {
+      height: 100%;
+      margin: 0
+    }
+    
+    body {
+      padding: 4px;
+      box-sizing: border-box;
+    }
+
+    .box {
+      display: flex;
+      flex-flow: column;
+      height: 100%;
+    }
+    
+    .box .row {
+      padding-bottom: 8px;
+    }
+    
+    .box .row.header {
+      flex: 0 1 auto;
+    }
+
+    .box .row.content {
+      flex: 1 1 auto;
+    }
+
+    .box .row.footer {
+      flex: 0 1 40px;
+    }
+    
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <div class="row header">
+      <label for="deckcode">Deck Code:</label>
+      <input type="text" id="deckcode" onblur="updateDecklist();" />
+    </div>
+    <textarea class="row content" id="decklist"></textarea>
+  </div>
+  
+  <script src="js/test.js" charset="utf-8"></script>
+  
+</body>
+
+</html>
