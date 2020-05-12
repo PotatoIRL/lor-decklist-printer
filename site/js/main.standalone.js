@@ -22964,10 +22964,13 @@ const decklist = document.getElementById("decklist")
 
 global.updateDecklist = function() {
   const deck = DeckEncoder.decode(deckcode.value);
-  console.log(deck);
   deck.sort((x, y) => cards[x.code].cost - cards[y.code].cost)
-  console.log(deck);
   decklist.value = deck.map(x => `${x.count} ${cards[x.code].name} (${cards[x.code].cost})`).join("\n")
+}
+
+global.copyDecklist = function() {
+    decklist.select();
+    document.execCommand('copy');
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})

@@ -20,3 +20,8 @@ global.updateDecklist = function() {
   deck.sort((x, y) => cards[x.code].cost - cards[y.code].cost)
   decklist.value = deck.map(x => `${x.count} ${cards[x.code].name} (${cards[x.code].cost})`).join("\n")
 }
+
+global.copyDecklist = function() {
+    decklist.select();
+    document.execCommand('copy');
+}
