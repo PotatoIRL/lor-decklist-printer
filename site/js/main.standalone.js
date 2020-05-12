@@ -1,28 +1,4 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-(function (global){
-const {
-  DeckEncoder
-} = require('runeterra')
-
-set = [
-  require('data/set1.json'),
-  require('data/set2.json')
-]
-
-cards = set.reduce(function(map, data) {
-  data.forEach(item => map[item.cardCode] = item);
-  return map;
-}, {})
-
-global.updateDecklist = function() {
-  const deckcode = document.getElementById("deckcode").value;
-  const deck = DeckEncoder.decode(deckcode);
-  const decklist = document.getElementById("decklist")
-  decklist.value = deck.map(x => x.count + " " + cards[x.code].name + "(" + cards[x.code].cost + ")").join("\n")
-}
-
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"data/set1.json":2,"data/set2.json":3,"runeterra":9}],2:[function(require,module,exports){
 module.exports=[
   {
     "associatedCards": [],
@@ -15969,7 +15945,7 @@ module.exports=[
     "collectible": true
   }
 ]
-},{}],3:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 module.exports=[
   {
     "associatedCards": [],
@@ -22615,7 +22591,7 @@ module.exports=[
     "collectible": true
   }
 ]
-},{}],4:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 class Base32 {
   static numberOfTrailingZeros (i) {
     if (i === 0) return 32
@@ -22717,7 +22693,7 @@ Base32.SEPARATOR = '-'
 
 module.exports = Base32
 
-},{}],5:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 const Faction = require('./Faction')
 
 module.exports = class Card {
@@ -22748,7 +22724,7 @@ module.exports = class Card {
   }
 }
 
-},{"./Faction":7}],6:[function(require,module,exports){
+},{"./Faction":6}],5:[function(require,module,exports){
 const Base32 = require('./Base32')
 const VarInt = require('./VarInt')
 const Card = require('./Card')
@@ -22893,7 +22869,7 @@ DeckEncoder.MAX_KNOWN_VERSION = 2
 
 module.exports = DeckEncoder
 
-},{"./Base32":4,"./Card":5,"./Faction":7,"./VarInt":8}],7:[function(require,module,exports){
+},{"./Base32":3,"./Card":4,"./Faction":6,"./VarInt":7}],6:[function(require,module,exports){
 class Faction {
   constructor (code, id) {
     this.shortCode = code
@@ -22914,7 +22890,7 @@ Faction.FACTIONS = ['DE', 'FR', 'IO', 'NX', 'PZ', 'SI', 'BW']
 
 module.exports = Faction
 
-},{}],8:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 class VarInt {
   static pop (bytes) {
     let result = 0
@@ -22960,11 +22936,35 @@ VarInt.JustMSB = 0x80
 
 module.exports = VarInt
 
-},{}],9:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 module.exports = {
   DeckEncoder: require('./DeckEncoder'),
   Card: require('./Card'),
   Faction: require('./Faction')
 }
 
-},{"./Card":5,"./DeckEncoder":6,"./Faction":7}]},{},[1]);
+},{"./Card":4,"./DeckEncoder":5,"./Faction":6}],9:[function(require,module,exports){
+(function (global){
+const {
+  DeckEncoder
+} = require('runeterra')
+
+set = [
+  require('data/set1.json'),
+  require('data/set2.json')
+]
+
+cards = set.reduce(function(map, data) {
+  data.forEach(item => map[item.cardCode] = item);
+  return map;
+}, {})
+
+global.updateDecklist = function() {
+  const deckcode = document.getElementById("deckcode").value;
+  const deck = DeckEncoder.decode(deckcode);
+  const decklist = document.getElementById("decklist")
+  decklist.value = deck.map(x => x.count + " " + cards[x.code].name + "(" + cards[x.code].cost + ")").join("\n")
+}
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"data/set1.json":1,"data/set2.json":2,"runeterra":8}]},{},[9]);
