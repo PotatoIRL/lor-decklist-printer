@@ -1,5 +1,3 @@
-
-
 class sets:
     data = {}
     
@@ -7,7 +5,7 @@ class sets:
         data = sets.data
         if set_id not in data:
             import json
-            file = open('set{0}.json'.format(set_id), 'rb')
+            file = open('data/set{0}.json'.format(set_id), 'rb')
             set_data = json.loads(file.read())
             data[set_id] = {card['cardCode'] : card for card in set_data}
             file.close()
