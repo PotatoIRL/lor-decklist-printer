@@ -12,7 +12,7 @@
   <div class="box">
     <div class="row header">
       <label for="deckcode">Deck Code:</label>
-      <input type="text" id="deckcode" onblur="updateDecklist();" />
+      <input type="text" id="deckcode" onclick="select()" onblur="updateDecklist();" />
     </div>
     <textarea class="row content" id="decklist" onclick="copyDecklist();"></textarea>
   </div>
