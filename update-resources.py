@@ -19,12 +19,12 @@ def write(path, data, mode = 'wb'):
 def fetch_globals_json():
     core_bundle_latest_zip = fetch_zip(urls.core_bundle_latest)
     globals_json = core_bundle_latest_zip.open('{0}/data/globals-{0}.json'.format(locale))
-    write('data/globals.json', globals_json.read())
+    write('node_modules/data/globals.json', globals_json.read())
 
 def fetch_sets_json(set_id):
     set_zip = fetch_zip(urls.set_bundle_latest(set_id))
     set_json = set_zip.open('{0}/data/set{1}-{0}.json'.format(locale, set_id))
-    write('data/set{0}.json'.format(set_id), set_json.read())
+    write('node_modules/data/set{0}.json'.format(set_id), set_json.read())
         
 fetch_globals_json()
 list(map(fetch_sets_json, [1, 2]))
