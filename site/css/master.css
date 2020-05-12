@@ -10,29 +10,64 @@ body {
 }
 
 .box {
+  box-sizing: border-box;
   display: flex;
+}
+
+.box.vertical {
   flex-flow: column;
   height: 100%;
 }
 
-.box .row {
+.box.horizontal {
+  flex-flow: row;
+  width: 100%
+}
+
+.box .cell {
   padding-bottom: 8px;
   display: flex;
 }
 
-.box .row.header {
-  flex: 0 1 auto;
+.box .cell.header {
+  flex: 0 1 0;
 }
 
-.box .row.content {
-  flex: 1 1 auto;
+.box .cell.content {
+  flex: 1 1 0;
 }
 
-.box .row.footer {
-  flex: 0 1 40px;
+.box .cell.footer {
+  flex: 0 1 0;
+}
+
+text {
+  fill: whitesmoke;
+  stroke: black;
+  stroke-width: 1.5px;
+  stroke-linejoin: round;
+}
+
+.card {
+  font: bold 1.8pc Century Gothic, Arial;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 170px;
+  height: 256px;
 }
 
 #deckcode {
   margin-left: 4px;
   flex: 2;
+}
+
+#deckview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: baseline;
+  overflow-y: scroll;
+  max-height: -moz-available;          /* WebKit-based browsers will ignore this. */
+  max-height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  max-height: fill-available;
 }

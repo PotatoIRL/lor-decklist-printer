@@ -9,12 +9,17 @@
 
 <body>
 
-  <div class="box">
-    <div class="row header">
+  <div class="box vertical">
+    <div class="cell header">
       <label for="deckcode">Deck Code:</label>
       <input type="text" id="deckcode" onclick="select()" onblur="updateDecklist();" />
     </div>
-    <textarea class="row content" id="decklist" onclick="copyDecklist();"></textarea>
+    <div class="cell content">
+      <div class="box horizontal">
+        <textarea class="cell content" id="decklist" onclick="copyDecklist();"></textarea>
+        <div class="cell content" id="deckview"></div>
+      </div>
+    </div>
   </div>
   
   <script src="js/main.standalone.min.js" charset="utf-8"></script>
