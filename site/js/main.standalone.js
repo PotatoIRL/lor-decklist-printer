@@ -22949,21 +22949,25 @@ const {
   DeckEncoder
 } = require('runeterra')
 
-set = [
+const set = [
   require('data/set1.json'),
   require('data/set2.json')
 ]
 
-cards = set.reduce(function(map, data) {
+const cards = set.reduce(function(map, data) {
   data.forEach(item => map[item.cardCode] = item);
   return map;
 }, {})
 
+const deckcode = document.getElementById("deckcode");
+const decklist = document.getElementById("decklist")
+
 global.updateDecklist = function() {
-  const deckcode = document.getElementById("deckcode").value;
-  const deck = DeckEncoder.decode(deckcode);
-  const decklist = document.getElementById("decklist")
-  decklist.value = deck.map(x => x.count + " " + cards[x.code].name + "(" + cards[x.code].cost + ")").join("\n")
+  const deck = DeckEncoder.decode(deckcode.value);
+  console.log(deck);
+  deck.sort((x, y) => cards[x.code].cost - cards[y.code].cost)
+  console.log(deck);
+  decklist.value = deck.map(x => `${x.count} ${cards[x.code].name} (${cards[x.code].cost})`).join("\n")
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
