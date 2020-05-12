@@ -25,3 +25,5 @@ global.copyDecklist = function() {
     decklist.select();
     document.execCommand('copy');
 }
+
+global.cards = cards
