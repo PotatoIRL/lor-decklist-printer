@@ -56,9 +56,16 @@ text {
   height: 256px;
 }
 
+.cell label {
+  display: flex;
+  align-items: center;
+}
+
 #deckcode {
   margin-left: 4px;
   flex: 2;
+  font-size: 1pc;
+  min-height: 1.1pc;
 }
 
 #deckview {
@@ -67,7 +74,9 @@ text {
   justify-content: center;
   align-content: baseline;
   overflow-y: scroll;
-  max-height: -moz-available;          /* WebKit-based browsers will ignore this. */
-  max-height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  max-height: -moz-available;
+  /* WebKit-based browsers will ignore this. */
+  max-height: -webkit-fill-available;
+  /* Mozilla-based browsers will ignore this. */
   max-height: fill-available;
 }
